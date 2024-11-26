@@ -1,0 +1,211 @@
+dev002@pop-os:~/Downloads/devops/segundo-semestre/my-packer-project$ packer build -var "aws_region=us-west-2" template.pkr.hcl
+amazon-ebs.amazon-linux: output will be in this color.
+
+==> amazon-ebs.amazon-linux: Prevalidating any provided VPC information
+==> amazon-ebs.amazon-linux: Prevalidating AMI Name: node-nginx-hello-world
+    amazon-ebs.amazon-linux: Found Image ID: ami-0caf77f9b87412c51
+==> amazon-ebs.amazon-linux: Creating temporary keypair: packer_6743f74b-3277-ad9d-c7d5-aad96ede0c67
+==> amazon-ebs.amazon-linux: Creating temporary security group for this instance: packer_6743f74d-682c-5eda-c1c2-b202e178c362
+==> amazon-ebs.amazon-linux: Authorizing access to port 22 from [0.0.0.0/0] in the temporary security groups...
+==> amazon-ebs.amazon-linux: Launching a source AWS instance...
+    amazon-ebs.amazon-linux: Instance ID: i-0185861ea521e91ec
+==> amazon-ebs.amazon-linux: Waiting for instance (i-0185861ea521e91ec) to become ready...
+==> amazon-ebs.amazon-linux: Using SSH communicator to connect: 34.221.150.15
+==> amazon-ebs.amazon-linux: Waiting for SSH to become available...
+==> amazon-ebs.amazon-linux: Connected to SSH!
+==> amazon-ebs.amazon-linux: Uploading app.js => /tmp/app.js
+    amazon-ebs.amazon-linux: app.js 350 B / 350 B [========================================================================] 100.00% 0s
+==> amazon-ebs.amazon-linux: Uploading nginx_config => /tmp/nginx_config
+==> amazon-ebs.amazon-linux: Provisioning with shell script: scripts/install_node.sh
+    amazon-ebs.amazon-linux: Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+    amazon-ebs.amazon-linux: Cleaning repos: amzn2-core amzn2extra-docker
+    amazon-ebs.amazon-linux: Cleaning up everything
+    amazon-ebs.amazon-linux: Maybe you want: rm -rf /var/cache/yum, to also free up space taken by orphaned data from disabled or removed repos
+    amazon-ebs.amazon-linux: Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+==> amazon-ebs.amazon-linux: Existing lock /var/run/yum.pid: another copy is running as pid 3122.
+==> amazon-ebs.amazon-linux: Another app is currently holding the yum lock; waiting for it to exit...
+==> amazon-ebs.amazon-linux:   The other application is: yum
+==> amazon-ebs.amazon-linux:     Memory :  33 M RSS (327 MB VSZ)
+==> amazon-ebs.amazon-linux:     Started: Mon Nov 25 04:04:46 2024 - 00:06 ago
+==> amazon-ebs.amazon-linux:     State  : Running, pid: 3122
+==> amazon-ebs.amazon-linux: Another app is currently holding the yum lock; waiting for it to exit...
+==> amazon-ebs.amazon-linux:   The other application is: yum
+==> amazon-ebs.amazon-linux:     Memory :  86 M RSS (380 MB VSZ)
+==> amazon-ebs.amazon-linux:     Started: Mon Nov 25 04:04:46 2024 - 00:08 ago
+==> amazon-ebs.amazon-linux:     State  : Running, pid: 3122
+==> amazon-ebs.amazon-linux: Another app is currently holding the yum lock; waiting for it to exit...
+==> amazon-ebs.amazon-linux:   The other application is: yum
+==> amazon-ebs.amazon-linux:     Memory : 124 M RSS (419 MB VSZ)
+==> amazon-ebs.amazon-linux:     Started: Mon Nov 25 04:04:46 2024 - 00:10 ago
+==> amazon-ebs.amazon-linux:     State  : Running, pid: 3122
+==> amazon-ebs.amazon-linux: Another app is currently holding the yum lock; waiting for it to exit...
+==> amazon-ebs.amazon-linux:   The other application is: yum
+==> amazon-ebs.amazon-linux:     Memory : 126 M RSS (421 MB VSZ)
+==> amazon-ebs.amazon-linux:     Started: Mon Nov 25 04:04:46 2024 - 00:12 ago
+==> amazon-ebs.amazon-linux:     State  : Running, pid: 3122
+==> amazon-ebs.amazon-linux: Another app is currently holding the yum lock; waiting for it to exit...
+==> amazon-ebs.amazon-linux:   The other application is: yum
+==> amazon-ebs.amazon-linux:     Memory : 121 M RSS (416 MB VSZ)
+==> amazon-ebs.amazon-linux:     Started: Mon Nov 25 04:04:46 2024 - 00:14 ago
+==> amazon-ebs.amazon-linux:     State  : Running, pid: 3122
+    amazon-ebs.amazon-linux: No packages marked for update
+==> amazon-ebs.amazon-linux: Topic nodejs is not found.
+    amazon-ebs.amazon-linux: Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+    amazon-ebs.amazon-linux: No package nodejs available.
+==> amazon-ebs.amazon-linux: Error: Nothing to do
+==> amazon-ebs.amazon-linux: Provisioning with shell script: scripts/install_nginx.sh
+    amazon-ebs.amazon-linux:   2  httpd_modules            available    [ =1.0  =stable ]
+    amazon-ebs.amazon-linux:   3  memcached1.5             available    \
+    amazon-ebs.amazon-linux:         [ =1.5.1  =1.5.16  =1.5.17 ]
+    amazon-ebs.amazon-linux:   9  R3.4                     available    [ =3.4.3  =stable ]
+    amazon-ebs.amazon-linux:  10  rust1                    available    \
+    amazon-ebs.amazon-linux:         [ =1.22.1  =1.26.0  =1.26.1  =1.27.2  =1.31.0  =1.38.0
+    amazon-ebs.amazon-linux:           =stable ]
+    amazon-ebs.amazon-linux:  18  libreoffice              available    \
+    amazon-ebs.amazon-linux:         [ =5.0.6.2_15  =5.3.6.1  =stable ]
+    amazon-ebs.amazon-linux:  19  gimp                     available    [ =2.8.22 ]
+    amazon-ebs.amazon-linux:  20 †docker=latest            enabled      \
+    amazon-ebs.amazon-linux:         [ =17.12.1  =18.03.1  =18.06.1  =18.09.9  =stable ]
+    amazon-ebs.amazon-linux:  21  mate-desktop1.x          available    \
+    amazon-ebs.amazon-linux:         [ =1.19.0  =1.20.0  =stable ]
+    amazon-ebs.amazon-linux:  22  GraphicsMagick1.3        available    \
+    amazon-ebs.amazon-linux:         [ =1.3.29  =1.3.32  =1.3.34  =stable ]
+    amazon-ebs.amazon-linux:  24  epel                     available    [ =7.11  =stable ]
+    amazon-ebs.amazon-linux:  25  testing                  available    [ =1.0  =stable ]
+    amazon-ebs.amazon-linux:  26  ecs                      available    [ =stable ]
+    amazon-ebs.amazon-linux:  27 †corretto8                available    \
+    amazon-ebs.amazon-linux:         [ =1.8.0_192  =1.8.0_202  =1.8.0_212  =1.8.0_222  =1.8.0_232
+    amazon-ebs.amazon-linux:           =1.8.0_242  =stable ]
+    amazon-ebs.amazon-linux:  32  lustre2.10               available    \
+    amazon-ebs.amazon-linux:         [ =2.10.5  =2.10.8  =stable ]
+    amazon-ebs.amazon-linux:  34  lynis                    available    [ =stable ]
+    amazon-ebs.amazon-linux:  36  BCC                      available    [ =0.x  =stable ]
+    amazon-ebs.amazon-linux:  37  mono                     available    [ =5.x  =stable ]
+    amazon-ebs.amazon-linux:  38  nginx1=latest            enabled      [ =stable ]
+    amazon-ebs.amazon-linux:  40  mock                     available    [ =stable ]
+    amazon-ebs.amazon-linux:  43  livepatch                available    [ =stable ]
+    amazon-ebs.amazon-linux:  45  haproxy2                 available    [ =stable ]
+    amazon-ebs.amazon-linux:  46  collectd                 available    [ =stable ]
+    amazon-ebs.amazon-linux:  47  aws-nitro-enclaves-cli   available    [ =stable ]
+    amazon-ebs.amazon-linux:  48  R4                       available    [ =stable ]
+    amazon-ebs.amazon-linux:  49  kernel-5.4               available    [ =stable ]
+    amazon-ebs.amazon-linux:  50  selinux-ng               available    [ =stable ]
+    amazon-ebs.amazon-linux:  52  tomcat9                  available    [ =stable ]
+    amazon-ebs.amazon-linux:  53  unbound1.13              available    [ =stable ]
+    amazon-ebs.amazon-linux:  54 †mariadb10.5              available    [ =stable ]
+    amazon-ebs.amazon-linux:  55  kernel-5.10              available    [ =stable ]
+    amazon-ebs.amazon-linux:  56  redis6                   available    [ =stable ]
+    amazon-ebs.amazon-linux:  59 †postgresql13             available    [ =stable ]
+    amazon-ebs.amazon-linux:  60  mock2                    available    [ =stable ]
+    amazon-ebs.amazon-linux:  61  dnsmasq2.85              available    [ =stable ]
+    amazon-ebs.amazon-linux:  62  kernel-5.15              available    [ =stable ]
+    amazon-ebs.amazon-linux:  63 †postgresql14             available    [ =stable ]
+    amazon-ebs.amazon-linux:  64  firefox                  available    [ =stable ]
+    amazon-ebs.amazon-linux:  65  lustre                   available    [ =stable ]
+    amazon-ebs.amazon-linux:  66 †php8.1                   available    [ =stable ]
+    amazon-ebs.amazon-linux:  67  awscli1                  available    [ =stable ]
+    amazon-ebs.amazon-linux:  68 †php8.2                   available    [ =stable ]
+    amazon-ebs.amazon-linux:  69  dnsmasq                  available    [ =stable ]
+    amazon-ebs.amazon-linux:  70  unbound1.17              available    [ =stable ]
+    amazon-ebs.amazon-linux:  72  collectd-python3         available    [ =stable ]
+    amazon-ebs.amazon-linux: † Note on end-of-support. Use 'info' subcommand.
+    amazon-ebs.amazon-linux:
+    amazon-ebs.amazon-linux: Now you can install:
+    amazon-ebs.amazon-linux:  # yum clean metadata
+    amazon-ebs.amazon-linux:  # yum install nginx
+    amazon-ebs.amazon-linux: Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+    amazon-ebs.amazon-linux: Resolving Dependencies
+    amazon-ebs.amazon-linux: --> Running transaction check
+    amazon-ebs.amazon-linux: ---> Package nginx.x86_64 1:1.22.1-1.amzn2.0.4 will be installed
+    amazon-ebs.amazon-linux: --> Processing Dependency: nginx-core = 1:1.22.1-1.amzn2.0.4 for package: 1:nginx-1.22.1-1.amzn2.0.4.x86_64
+    amazon-ebs.amazon-linux: --> Processing Dependency: nginx-filesystem = 1:1.22.1-1.amzn2.0.4 for package: 1:nginx-1.22.1-1.amzn2.0.4.x86_64
+    amazon-ebs.amazon-linux: --> Running transaction check
+    amazon-ebs.amazon-linux: ---> Package nginx-core.x86_64 1:1.22.1-1.amzn2.0.4 will be installed
+    amazon-ebs.amazon-linux: --> Processing Dependency: libcrypto.so.1.1(OPENSSL_1_1_0)(64bit) for package: 1:nginx-core-1.22.1-1.amzn2.0.4.x86_64
+    amazon-ebs.amazon-linux: --> Processing Dependency: libssl.so.1.1(OPENSSL_1_1_0)(64bit) for package: 1:nginx-core-1.22.1-1.amzn2.0.4.x86_64
+    amazon-ebs.amazon-linux: --> Processing Dependency: libssl.so.1.1(OPENSSL_1_1_1)(64bit) for package: 1:nginx-core-1.22.1-1.amzn2.0.4.x86_64
+    amazon-ebs.amazon-linux: --> Processing Dependency: libcrypto.so.1.1()(64bit) for package: 1:nginx-core-1.22.1-1.amzn2.0.4.x86_64
+    amazon-ebs.amazon-linux: --> Processing Dependency: libprofiler.so.0()(64bit) for package: 1:nginx-core-1.22.1-1.amzn2.0.4.x86_64
+    amazon-ebs.amazon-linux: --> Processing Dependency: libssl.so.1.1()(64bit) for package: 1:nginx-core-1.22.1-1.amzn2.0.4.x86_64
+    amazon-ebs.amazon-linux: ---> Package nginx-filesystem.noarch 1:1.22.1-1.amzn2.0.4 will be installed
+    amazon-ebs.amazon-linux: --> Running transaction check
+    amazon-ebs.amazon-linux: ---> Package gperftools-libs.x86_64 0:2.6.1-1.amzn2 will be installed
+    amazon-ebs.amazon-linux: ---> Package openssl11-libs.x86_64 1:1.1.1za-1.amzn2.0.1 will be installed
+    amazon-ebs.amazon-linux: --> Processing Dependency: openssl11-pkcs11 for package: 1:openssl11-libs-1.1.1za-1.amzn2.0.1.x86_64
+    amazon-ebs.amazon-linux: --> Running transaction check
+    amazon-ebs.amazon-linux: ---> Package openssl11-pkcs11.x86_64 0:0.4.10-6.amzn2.0.1 will be installed
+    amazon-ebs.amazon-linux: --> Finished Dependency Resolution
+    amazon-ebs.amazon-linux:
+    amazon-ebs.amazon-linux: Dependencies Resolved
+    amazon-ebs.amazon-linux:
+    amazon-ebs.amazon-linux: ================================================================================
+    amazon-ebs.amazon-linux:  Package            Arch     Version                  Repository           Size
+    amazon-ebs.amazon-linux: ================================================================================
+    amazon-ebs.amazon-linux: Installing:
+    amazon-ebs.amazon-linux:  nginx              x86_64   1:1.22.1-1.amzn2.0.4     amzn2extra-nginx1    55 k
+    amazon-ebs.amazon-linux: Installing for dependencies:
+    amazon-ebs.amazon-linux:  gperftools-libs    x86_64   2.6.1-1.amzn2            amzn2-core          274 k
+    amazon-ebs.amazon-linux:  nginx-core         x86_64   1:1.22.1-1.amzn2.0.4     amzn2extra-nginx1   559 k
+    amazon-ebs.amazon-linux:  nginx-filesystem   noarch   1:1.22.1-1.amzn2.0.4     amzn2extra-nginx1    25 k
+    amazon-ebs.amazon-linux:  openssl11-libs     x86_64   1:1.1.1za-1.amzn2.0.1    amzn2-core          1.4 M
+    amazon-ebs.amazon-linux:  openssl11-pkcs11   x86_64   0.4.10-6.amzn2.0.1       amzn2-core           61 k
+    amazon-ebs.amazon-linux:
+    amazon-ebs.amazon-linux: Transaction Summary
+    amazon-ebs.amazon-linux: ================================================================================
+    amazon-ebs.amazon-linux: Install  1 Package (+5 Dependent packages)
+    amazon-ebs.amazon-linux:
+    amazon-ebs.amazon-linux: Total download size: 2.4 M
+    amazon-ebs.amazon-linux: Installed size: 6.7 M
+    amazon-ebs.amazon-linux: Downloading packages:
+    amazon-ebs.amazon-linux: --------------------------------------------------------------------------------
+    amazon-ebs.amazon-linux: Total                                              8.2 MB/s | 2.4 MB  00:00
+    amazon-ebs.amazon-linux: Running transaction check
+    amazon-ebs.amazon-linux: Running transaction test
+    amazon-ebs.amazon-linux: Transaction test succeeded
+    amazon-ebs.amazon-linux: Running transaction
+    amazon-ebs.amazon-linux:   Installing : 1:nginx-filesystem-1.22.1-1.amzn2.0.4.noarch                 1/6
+    amazon-ebs.amazon-linux:   Installing : 1:openssl11-libs-1.1.1za-1.amzn2.0.1.x86_64                  2/6
+    amazon-ebs.amazon-linux:   Installing : openssl11-pkcs11-0.4.10-6.amzn2.0.1.x86_64                   3/6
+    amazon-ebs.amazon-linux:   Installing : gperftools-libs-2.6.1-1.amzn2.x86_64                         4/6
+    amazon-ebs.amazon-linux:   Installing : 1:nginx-core-1.22.1-1.amzn2.0.4.x86_64                       5/6
+    amazon-ebs.amazon-linux:   Installing : 1:nginx-1.22.1-1.amzn2.0.4.x86_64                            6/6
+    amazon-ebs.amazon-linux:   Verifying  : 1:nginx-core-1.22.1-1.amzn2.0.4.x86_64                       1/6
+    amazon-ebs.amazon-linux:   Verifying  : gperftools-libs-2.6.1-1.amzn2.x86_64                         2/6
+    amazon-ebs.amazon-linux:   Verifying  : openssl11-pkcs11-0.4.10-6.amzn2.0.1.x86_64                   3/6
+    amazon-ebs.amazon-linux:   Verifying  : 1:openssl11-libs-1.1.1za-1.amzn2.0.1.x86_64                  4/6
+    amazon-ebs.amazon-linux:   Verifying  : 1:nginx-1.22.1-1.amzn2.0.4.x86_64                            5/6
+    amazon-ebs.amazon-linux:   Verifying  : 1:nginx-filesystem-1.22.1-1.amzn2.0.4.noarch                 6/6
+    amazon-ebs.amazon-linux:
+    amazon-ebs.amazon-linux: Installed:
+    amazon-ebs.amazon-linux:   nginx.x86_64 1:1.22.1-1.amzn2.0.4
+    amazon-ebs.amazon-linux:
+    amazon-ebs.amazon-linux: Dependency Installed:
+    amazon-ebs.amazon-linux:   gperftools-libs.x86_64 0:2.6.1-1.amzn2
+    amazon-ebs.amazon-linux:   nginx-core.x86_64 1:1.22.1-1.amzn2.0.4
+    amazon-ebs.amazon-linux:   nginx-filesystem.noarch 1:1.22.1-1.amzn2.0.4
+    amazon-ebs.amazon-linux:   openssl11-libs.x86_64 1:1.1.1za-1.amzn2.0.1
+    amazon-ebs.amazon-linux:   openssl11-pkcs11.x86_64 0:0.4.10-6.amzn2.0.1
+    amazon-ebs.amazon-linux:
+    amazon-ebs.amazon-linux: Complete!
+==> amazon-ebs.amazon-linux: Created symlink from /etc/systemd/system/multi-user.target.wants/nginx.service to /usr/lib/systemd/system/nginx.service.
+==> amazon-ebs.amazon-linux: Provisioning with shell script: scripts/configure_app.sh
+==> amazon-ebs.amazon-linux: cp: cannot stat ‘/tmp/nginx_config/app.conf’: No such file or directory
+==> amazon-ebs.amazon-linux: Stopping the source instance...
+    amazon-ebs.amazon-linux: Stopping instance
+==> amazon-ebs.amazon-linux: Waiting for the instance to stop...
+==> amazon-ebs.amazon-linux: Creating AMI node-nginx-hello-world from instance i-0185861ea521e91ec
+    amazon-ebs.amazon-linux: AMI: ami-0a3b5236fee46a88b
+==> amazon-ebs.amazon-linux: Waiting for AMI to become ready...
+==> amazon-ebs.amazon-linux: Skipping Enable AMI deprecation...
+==> amazon-ebs.amazon-linux: Terminating the source AWS instance...
+==> amazon-ebs.amazon-linux: Cleaning up any extra volumes...
+==> amazon-ebs.amazon-linux: No volumes to clean up, skipping
+==> amazon-ebs.amazon-linux: Deleting temporary security group...
+==> amazon-ebs.amazon-linux: Deleting temporary keypair...
+Build 'amazon-ebs.amazon-linux' finished after 5 minutes 59 seconds.
+
+==> Wait completed after 5 minutes 59 seconds
+
+==> Builds finished. The artifacts of successful builds are:
+--> amazon-ebs.amazon-linux: AMIs were created:
+us-west-2: ami-0a3b5236fee46a88b
